@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4ead7" />
+  <meta name="description" content="영덕 컬렉션 모바일 향기 아카이브" />
+  <title>Yeongdeok Scent Archive</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero" id="top">
+      <nav class="brand-row" aria-label="브랜드">
+        <a class="brand-mark" href="#top" aria-label="처음으로 이동">YD</a>
+        <p class="eyebrow">YEONGDEOK SCENT ARCHIVE</p>
+        <button class="ghost-button" id="openScentPicker" type="button">향 선택</button>
+      </nav>
+
+      <section class="welcome-card" aria-labelledby="scentTitle">
+        <p class="scent-number" id="scentNumber">01</p>
+        <h1 id="scentTitle">강구항의 아침</h1>
+        <p class="lead" id="scentLead">파도가 하루를 깨우고, 소금기 어린 바람이 가장 먼저 도착하는 곳.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#scent-play">향의 이야기 보기</a>
+          <button class="secondary-button" id="audioToggle" type="button" aria-pressed="false">ASMR 켜기</button>
+        </div>
+      </section>
+
+      <div class="visual-card" aria-label="향기 비주얼 카드">
+        <div class="visual-gradient" id="visualGradient"></div>
+        <div class="visual-caption">
+          <span id="placeLabel">Ganggu Port</span>
+          <strong id="moodLabel">Morning Sea · Salt Air</strong>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="tab-bar" role="tablist" aria-label="콘텐츠 탭">
+        <a href="#scent-play" class="tab-link active">Scent Play</a>
+        <a href="#local-map" class="tab-link">Local Map</a>
+        <a href="#re-order" class="tab-link">Re-Order</a>
+      </div>
+
+      <section class="section" id="scent-play">
+        <p class="section-kicker">TAB 1 · 감각의 복원</p>
+        <h2>Scent Play</h2>
+        <p class="section-copy" id="narrativeText">이 향은 새벽의 선착장, 젖은 밧줄, 막 돌아온 배의 기척, 그리고 영덕 바다의 차가운 첫 공기를 담았습니다.</p>
+
+        <div class="lookbook" id="lookbook" aria-label="비주얼 룩북"></div>
+
+        <article class="note-card">
+          <div>
+            <p class="mini-label">SCENT NOTE</p>
+            <h3 id="noteTitle">차갑고 맑은 항구의 공기</h3>
+          </div>
+          <dl class="note-list">
+            <div><dt>TOP</dt><dd id="topNote">Sea Salt · Bergamot · Morning Air</dd></div>
+            <div><dt>MIDDLE</dt><dd id="middleNote">Marine Accord · Wet Stone · Green Herb</dd></div>
+            <div><dt>BASE</dt><dd id="baseNote">Cedarwood · Soft Musk · Amber</dd></div>
+          </dl>
+        </article>
+
+        <article class="sound-card">
+          <div>
+            <p class="mini-label">LOCAL SOUND ASMR</p>
+            <h3 id="soundTitle">새벽 선착장의 파도와 갈매기</h3>
+            <p id="soundDesc">사쉐 향을 맡으며 재생하면 일상 공간이 강구항의 아침처럼 느껴지도록 설계한 사운드 경험입니다.</p>
+          </div>
+          <button class="round-button" id="soundButton" type="button">▶</button>
+        </article>
+
+        <article class="memory-card">
+          <p class="mini-label">MY SCENT MEMORY</p>
+          <h3>나의 영덕 향기 기록</h3>
+          <label for="memoryInput">이 향을 맡고 떠오른 장면을 남겨보세요.</label>
+          <textarea id="memoryInput" rows="4" placeholder="예: 차가운 바닷바람과 여행의 시작이 떠올랐어요."></textarea>
+          <button class="primary-button full" id="makeMemory" type="button">나의 향기 카드 만들기</button>
+          <div class="memory-output" id="memoryOutput" hidden></div>
+        </article>
+      </section>
+
+      <section class="section" id="local-map">
+        <p class="section-kicker">TAB 2 · 디지털 상생 허브</p>
+        <h2>Local Map</h2>
+        <p class="section-copy">향의 배경이 된 장소 주변의 추천 동선, 포토스팟, 로컬 매장, 디지털 쿠폰을 연결합니다.</p>
+
+        <article class="route-card">
+          <p class="mini-label">향기를 걷다</p>
+          <h3 id="routeTitle">강구항 아침 산책 코스</h3>
+          <ol class="route-list" id="routeList"></ol>
+          <a class="secondary-button full" id="mapLink" href="https://map.naver.com/" target="_blank" rel="noreferrer">지도에서 보기</a>
+        </article>
+
+        <div class="partner-grid" id="partnerGrid" aria-label="로컬 파트너 매장"></div>
+
+        <article class="voucher-card">
+          <p class="mini-label">DIGITAL VOUCHER</p>
+          <h3>영덕 컬렉션 파트너 혜택</h3>
+          <p>웹페이지 방문자에게만 제공되는 파트너 매장 10% 할인 또는 시그니처 메뉴 증정 쿠폰입니다.</p>
+          <button class="primary-button full" id="voucherButton" type="button">바우처 받기</button>
+          <p class="voucher-code" id="voucherCode" hidden>YDSCENT-LOCAL10</p>
+        </article>
+      </section>
+
+      <section class="section" id="re-order">
+        <p class="section-kicker">TAB 3 · 일상의 확장</p>
+        <h2>Re-Order</h2>
+        <p class="section-copy">발향 수명이 끝나는 시점에 맞춰 동일 향 재구매, 5종 세트, 계절 구독, 리필 키트로 자연스럽게 연결합니다.</p>
+
+        <div class="commerce-grid">
+          <article class="commerce-card">
+            <p class="mini-label">ONE CLICK</p>
+            <h3 id="reorderTitle">강구항의 아침 다시 구매하기</h3>
+            <p>네이버페이·카카오페이 기반 간편 결제 연동을 가정한 구매 CTA입니다.</p>
+            <a class="primary-button full" href="#" aria-label="스마트스토어 준비 중">스마트스토어 연결</a>
+          </article>
+          <article class="commerce-card">
+            <p class="mini-label">SUBSCRIPTION</p>
+            <h3>영덕의 계절 구독</h3>
+            <p>두 달에 한 번, 영덕의 새로운 계절 향과 로컬 엽서가 집으로 도착합니다.</p>
+            <a class="secondary-button full" href="#">구독 알림 신청</a>
+          </article>
+          <article class="commerce-card">
+            <p class="mini-label">REFILL KIT</p>
+            <h3>리필 키트</h3>
+            <p>틴케이스를 재사용할 수 있도록 발향 세라믹 스톤과 리필 오일을 별도 판매합니다.</p>
+            <a class="secondary-button full" href="#">리필 키트 보기</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section other-section">
+        <p class="section-kicker">OTHER SCENTS</p>
+        <h2>영덕은 하나의 향으로 기억되지 않습니다.</h2>
+        <div class="scent-grid" id="scentGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="scent-dialog" id="scentDialog">
+    <form method="dialog">
+      <div class="dialog-head">
+        <h2>향 선택</h2>
+        <button class="ghost-button" value="close" aria-label="닫기">닫기</button>
+      </div>
+      <div class="dialog-list" id="dialogList"></div>
+    </form>
+  </dialog>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
